@@ -48,6 +48,7 @@ $(document).ready(function() {
           })
           .then(data => {
               displayMovies(data.results);
+              displayCarousel(data.results)
           })
           .catch(error => {
               console.error('Error fetching movies:', error);
@@ -133,6 +134,7 @@ function clearMovies() {
       })
       .then(data => {
         displayMovies(data.results);
+        displayCarousel(data.results);
       })
       .catch(error => {
         console.error('Error fetching movies:', error);
@@ -140,7 +142,6 @@ function clearMovies() {
   }
   function displayMovies(movies) {
     const moviesContainer = document.getElementById('movies-container');
-    let movieCount = 0;
 
     movies.forEach(movie => {
         const releaseYear = (new Date(movie.release_date)).getFullYear();
@@ -158,10 +159,64 @@ function clearMovies() {
               </div>
           `;
           $('#movies-container').append(movieElement);
-        movieCount++;
     });
 
 }
+function displayCarousel(movies){
+  const carouselContainer = document.getElementById("carousel-container");
+
+  if (movies.length > 0) {
+    const firstMovie = movies[0];
+    const movieElement = `
+      <div class="carousel-item active">
+        <img src="http://image.tmdb.org/t/p/original${firstMovie.backdrop_path}" class="d-block w-100" alt="Movie poster">
+        <div class="carousel-caption">
+          <div class="container movie-details">
+            <div id="movie-details" class="row">
+              <div class="col-12 col-md-4">
+                <img class="img-carousel card-img mt-3 mb-3 rounded-" src="https://image.tmdb.org/t/p/w500${firstMovie.poster_path}" alt="Card image">
+              </div>
+              <div class="col-12 col-md-8">
+                <h2 class="movie-title">${firstMovie.title}</h2>
+                <p>${firstMovie.overview}</p>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+
+      carouselContainer.innerHTML = movieElement;
+      for (let index = 1; index < 3; index++) {
+        const firstMovie = movies[index];
+        const movieElement = `
+          <div class="carousel-item">
+            <img src="http://image.tmdb.org/t/p/original${firstMovie.backdrop_path}" class="d-block w-100" alt="Movie poster">
+            <div class="carousel-caption">
+              <div class="container movie-details">
+                <div id="movie-details" class="row">
+                  <div class="col-12 col-md-4">
+                    <img class="img-carousel card-img mt-3 mb-3 rounded-" src="https://image.tmdb.org/t/p/w500${firstMovie.poster_path}" alt="Card image">
+                  </div>
+                  <div class="col-12 col-md-8">
+                    <h2 class="movie-title">${firstMovie.title}</h2>
+                    <p>${firstMovie.overview}</p>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>`;
+          
+        carouselContainer.innerHTML += movieElement;
+      }
+
+
+  }
+}
+
+  
+
 
   function loadMoreMovies() {
     if (currentPage <= totalPages) {
