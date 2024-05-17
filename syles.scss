@@ -1,0 +1,251 @@
+//variables
+
+$color-principal-naranja: #e27551;
+$color-fondo:#313131; 
+$color-negro:#000000; 
+$color-gris: grey;
+$tamaño-letra-pequeña: small;
+
+
+body{
+    background-color: $color-fondo;
+}
+
+header{
+    background: $color-negro;
+}
+
+.carrusel{
+    padding: 0;
+    margin-top: 75px;
+}
+
+.fila-pelicula{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.barra-color{
+    background-color: $color-negro;
+}
+
+.carousel-indicators .active {
+    background-color: $color-gris;
+}
+
+li{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
+    color: #E94E1B;
+}
+.navbar-dark .navbar-nav, .navbar-dark .navbar-nav .nav-link:hover {
+    color: $color-principal-naranja;
+}
+
+.card-text{
+    font-size: $tamaño-letra-pequeña;
+    color: $color-principal-naranja;
+}
+
+.btn-primary{
+    background-color: #E94E1B;
+    border-color: #E94E1B;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #E94E1B;
+    border-color: #E94E1B;
+}
+
+
+
+  .carousel-item img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+
+  .carousel-caption h1 {
+    font-size: 2em; /* Tamaño del título */
+    margin-bottom: 15px; /* Espacio inferior */
+  }
+
+
+
+  .carousel-caption p {
+    font-size: 1em; /* Tamaño del texto */
+    line-height: 1.5; /* Altura de línea */
+  }
+
+  .dropdown-menu{
+    background-color: $color-negro;
+  }
+
+  .dropdown-item:focus, .dropdown-item:hover, .dropdown-item.active {
+    background-color: $color-negro;
+}
+
+/* Estilos para el dropdown de dos columnas */
+.dropdown-menu.multi-column {
+    width: fit-content;
+}
+
+.dropdown-menu.multi-column .row {
+    display: flex;
+}
+
+.dropdown-menu.multi-column .col {
+    flex: 1;
+    padding: 0 10px; /* Espacio entre columnas */
+}
+
+.nav-link.disabled {
+    color: rgba(255, 255, 255, .5) !important;
+}
+
+.link-git{
+    color: rgba(255, 255, 255, 0.712) !important;
+}
+
+
+.navbar-brand{
+    margin-right: 0px;
+}
+
+body {
+    position: relative;
+}
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Asegura que esté detrás del contenido */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5; /* Ajusta la opacidad según sea necesario */
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5; /* Ajusta la opacidad del overlay */
+}
+.content {
+    z-index: 1; /* Asegura que esté delante del fondo */
+}
+.movie-details{
+    margin-top: 120px;
+    background-color: #ffffff80;
+    border-radius: 20px;
+}
+
+.movie-title{
+    margin-top: 5px;
+}
+
+.stars {
+    display: inline-block;
+    font-size: 20px;
+    overflow: hidden;
+    position: relative;
+    vertical-align: bottom;
+    color: gold; /* Color de las estrellas */
+}
+
+.stars:before {
+    content: '★★★★★';
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    color: #ccc; /* Color de las estrellas vacías */
+}
+
+.rating-value {
+    display: inline-block;
+    font-size: 18px;
+    color: black; /* Color del puntaje */
+    margin-left: 10px; /* Espacio entre las estrellas y el puntaje */
+}
+
+.columna-informacion {
+    display: flex; /* Habilita el layout flexbox */
+    flex-direction: column; /* Establece la dirección del layout como vertical */
+    justify-content: space-between; /* Distribuye los elementos uniformemente entre ellos y los extremos del contenedor */
+    align-items: stretch; /* Extiende los elementos para que ocupen toda la altura disponible */
+    
+}
+  
+  .elemento-informativo {
+    flex: 1; /* Asigna a cada elemento la misma cantidad de espacio disponible */
+    display: flex; /* Habilita el layout flexbox para cada elemento */
+    align-items: center; /* Alinea los elementos horizontalmente en el centro */
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  } 
+
+.fila-details{
+  flex-wrap: nowrap;
+}
+.columna-informacion{
+  flex-direction: column;
+}
+.carousel-item {
+    height: 650px; /* Altura deseada del carrusel */
+}
+
+.carousel-item h2{
+    margin-top: 30px;
+    color: black;
+}
+.carousel-item p{
+    margin-top: 30px;
+    color: black;
+}
+
+.img-carousel{
+    width: 85%;
+    height: auto !important;
+}
+
+@media (min-width:768px) and (max-width: 1024px) {
+    .carousel-caption{
+        bottom: 30% !important;
+    }   
+}
+
+@media (max-width: 767px) {
+    .fila-details{
+        flex-wrap: wrap;
+    }
+    .columna-informacion{
+        flex-direction: row;
+    }
+
+    .carousel-item {
+        height: 50vh; /* Altura deseada del carrusel */
+    }
+
+    .img-carousel{
+        width: 55% !important;
+    }
+    .carousel-caption{
+        bottom: 15px !important;
+    }
+
+
+}
+  
